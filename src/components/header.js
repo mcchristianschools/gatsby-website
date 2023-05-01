@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
+// TODO - remove extra css styling from header like done in layout.tsx
 const Header = ({ siteTitle }) => (
   <header
     style={{

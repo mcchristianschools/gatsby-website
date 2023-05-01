@@ -97,17 +97,46 @@ const IndexPage = () => (
       </p>
     </div>
     <ul className={styles.list}>
-      {links.map(link => (
-        <li key={link.url} className={styles.listItem}>
-          <a
-            className={styles.listItemLink}
-            href={`${link.url}${utmParameters}`}
-          >
-            {link.text} ↗
-          </a>
-          <p className={styles.listItemDescription}>{link.description}</p>
-        </li>
-      ))}
+      <li className={styles.listItem}>
+        <h5
+          className={styles.listItemLink}
+        >
+          Lorem Ipsum 1
+        </h5>
+        <p className={styles.listItemDescription}>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </p>
+      </li>
+      <li className={styles.listItem}>
+        <h5
+          className={styles.listItemLink}
+        >
+          Lorem Ipsum 2
+        </h5>
+        <p className={styles.listItemDescription}>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </p>
+      </li>
+      <li className={styles.listItem}>
+        <h5
+          className={styles.listItemLink}
+        >
+          Lorem Ipsum 3
+        </h5>
+        <p className={styles.listItemDescription}>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </p>
+      </li>
+      <li className={styles.listItem}>
+        <h5
+          className={styles.listItemLink}
+        >
+          Lorem Ipsum 4
+        </h5>
+        <p className={styles.listItemDescription}>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </p>
+      </li>
     </ul>
     {moreLinks.map((link, i) => (
       <React.Fragment key={link.url}>
