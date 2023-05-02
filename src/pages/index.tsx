@@ -29,10 +29,6 @@ const PageLayout: React.FC = () => (
       and run <code>tsc --init</code> to create a <code>tsconfig</code> file.
     </p>
     <p>
-      You're currently on the page <code>{location.pathname}</code> which was
-      built on N/A.
-    </p>
-    <p>
       To learn more, head over to our{" "}
       <a href="https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/">
         documentation about TypeScript
