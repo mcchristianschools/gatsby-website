@@ -1,12 +1,11 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-// TODO - remove extra css styling from header like done in layout.tsx
 const Header = ({ siteTitle }) => (
   <header
     style={{
       margin: `0 auto`,
-      padding: `var(--space-4) var(--size-gutter)`,
+      padding: `24px 32px`,
       display: `flex`,
       alignItems: `center`,
       justifyContent: `space-between`,
