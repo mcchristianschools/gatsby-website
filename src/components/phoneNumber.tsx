@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IMaskInput } from 'react-imask';
 import TextField from '@mui/material/TextField';
-import { ChangeEvent, forwardRef, useState } from 'react';
+import { ChangeEvent, forwardRef, useState, Dispatch } from 'react';
 
 interface CustomProps {
   onChange: (event: { target: { name: string; value: string } }) => void;
@@ -26,8 +26,7 @@ const IMask = forwardRef<HTMLElement, CustomProps>(
   },
 );
 
-export default function PhoneNumber() {
-    const [phoneNumber, setPhoneNumber] = useState('')
+export default function PhoneNumber({ phoneNumber, setPhoneNumber }: { phoneNumber: string, setPhoneNumber: Dispatch<React.SetStateAction<string>>}) {
     const [helperText, setHelperText] = useState(null)
     
 

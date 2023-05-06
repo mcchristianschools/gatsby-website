@@ -7,6 +7,11 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
+require('dotenv').config({
+    path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
     siteMetadata: {
         title: `Gatsby Default Starter`,
@@ -38,6 +43,19 @@ module.exports = {
                 display: `minimal-ui`,
                 icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
             },
+        },
+        {
+            resolve: 'gatsby-plugin-mailchimp',
+            options: {
+                endpoint: process.env.MAILCHIMP_ENDPOINT
+            }
         }
+        // TODO2 - Lighthouse report indicates that this does reduce the LCP and SI, but dramatically increases the Total Blocking Time and leads to a lower score overall. It also slows done LCP and Time to Interactive mildly.
+        // {
+        //     resolve: 'gatsby-plugin-brotli',
+        //     options: {
+        //         extensions: ['css', 'html', 'js', 'svg']
+        //     }
+        // }
     ],
 }
