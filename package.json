@@ -8,6 +8,7 @@
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
     "@mui/material": "^5.12.3",
+    "clsx": "^1.2.1",
     "dotenv": "^16.0.3",
     "gatsby": "^5.9.0",
     "gatsby-plugin-brotli": "^2.1.0",
