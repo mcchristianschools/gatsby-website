@@ -8,38 +8,36 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-function Seo({ description, title, children }) {
-  const { site } = useStaticQuery(
-    graphql`
+function Seo({ description, title, children }: { description?: string, title?: string, children?: any }) {
+    const { site } = useStaticQuery(
+        graphql`
       query {
         site {
           siteMetadata {
             title
             description
             author
+            siteUrl
           }
         }
       }
     `
-  )
+    )
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+    const metaDescription = description || site.siteMetadata.description
+    const defaultTitle = site.siteMetadata?.title
 
-  return (
-    <>
-      <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
-      <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:creator" content={site.siteMetadata?.author || ``} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={metaDescription} />
-      {children}
-    </>
-  )
+    return (
+        <>
+            <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
+            <meta name="description" content={metaDescription} />
+            <meta property="og:title" content={title} />
+            <meta property="og:description" content={metaDescription} />
+            <meta property="og:type" content="website" />
+            <meta name="keywords" content="Christian, School, Richmond KY, Gracepoint, Christian School, Education, Learning, Elementary, Elementary School, Schooling, Teaching" />
+            {children}
+        </>
+    )
 }
 
 export default Seo

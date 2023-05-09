@@ -6,6 +6,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import ContactForm from "../components/contactForm"
 import { List, ListItem, Typography } from "@mui/material"
+import SEO from "../components/seo"
 
 const PageLayout: React.FC = () => (
     <Layout>
@@ -27,6 +28,10 @@ const PageLayout: React.FC = () => (
             <ContactForm></ContactForm>
         </div>
     </Layout>
+)
+
+export const Head = () => (
+    <SEO />
 )
 
 export default PageLayout
