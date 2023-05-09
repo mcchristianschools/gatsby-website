@@ -41,7 +41,8 @@ const Layout = ({ children }) => {
                 <main>{children}</main>
                 <footer
                     style={{
-                        marginTop: '25px'
+                        marginTop: '25px',
+                        fontSize: '14px'
                     }}
                 >
                     © {new Date().getFullYear()} &middot; Madison County Christian Schools

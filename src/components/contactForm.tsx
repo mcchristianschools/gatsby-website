@@ -13,6 +13,7 @@ const ContactForm = () => {
     const [email, setEmail] = useState('')
     const [emailHelperText, setEmailHelperText] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
+    const [phoneNumberHelperText, setPhoneNumberHelperText] = useState('')
     const [sendCheck, setSendCheck] = useState(false)
     const [donateCheck, setDonateCheck] = useState(false)
     const [supportCheck, setSupportCheck] = useState(false)
@@ -23,9 +24,9 @@ const ContactForm = () => {
     const convertReasonsToText = (reasonCheckboxes: any) => {
         let text = ''
         if (reasonCheckboxes.sendCheck) text += 'enroll,'
-        if (reasonCheckboxes.donateCheck) text += 'finance,'
+        if (reasonCheckboxes.donateCheck) text += 'donate,'
         if (reasonCheckboxes.supportCheck) text += 'support,'
-        if (reasonCheckboxes.workCheck) text += 'support'
+        if (reasonCheckboxes.workCheck) text += 'work'
 
         // Trim possible ending comma
         return text.substring(text.length - 1) === ',' ? text.substring(0, text.length - 1) : text
@@ -52,21 +53,25 @@ const ContactForm = () => {
     const onSubmit = async () => {
 
         // Validate Fields
-        let requiredError = false
+        let validationError = false
         if (firstName === '') {
-            requiredError = true
+            validationError = true
             setFirstNameHelperText('First Name is requied')
         }
         if (lastName === '') {
-            requiredError = true
+            validationError = true
             setLastNameHelperText('Last Name is requied')
         }
         if (email === '') {
-            requiredError = true
+            validationError = true
             setEmailHelperText('Email is requied')
         }
+        if (phoneNumber && phoneNumber.length !== 14) {
+            validationError = true
+            setPhoneNumberHelperText('Phone number must be 10 digits when provided')
+        }
 
-        if (requiredError) return
+        if (validationError) return
 
         setFormDetails('')
 
@@ -74,7 +79,7 @@ const ContactForm = () => {
         try {
             setSubmitDisabled(true)
             const submitResponse = await handleSubmit(email, {
-                // firstName,
+                firstName,
                 lastName,
                 phoneNumber,
                 reasons: convertReasonsToText({ sendCheck, donateCheck, supportCheck, workCheck })
@@ -83,7 +88,7 @@ const ContactForm = () => {
             if (submitResponse.result === 'error') {
                 setFormDetails(`Error submitting form: ${submitResponse.msg}`)
             } else {
-                setFormDetails(`${submitResponse.msg} You should recieve a welcome email from us shortly.`)
+                setFormDetails(`${submitResponse.msg} We'll contact you when we have updates!`)
                 setFirstName('')
                 setLastName('')
                 setEmail('')
@@ -119,7 +124,7 @@ const ContactForm = () => {
                     <Typography variant='subtitle1' style={{
                         marginBottom: '5px'
                     }}>Optional</Typography>
-                    <PhoneNumber phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} />
+                    <PhoneNumber phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} helperText={phoneNumberHelperText} setHelperText={setPhoneNumberHelperText} />
                     <FormGroup style={{ marginTop: '10px' }}>
                         <Typography>I want to (check all that apply):</Typography>
                         <FormControlLabel control={<Checkbox checked={sendCheck} onChange={onSendCheckChange} />} label="Send my child(ren) to the school when it opens" />
