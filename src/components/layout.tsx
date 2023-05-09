@@ -15,7 +15,7 @@ import Header from "./header"
 // TODO - integrate mui styled or themeProvider. The replacement(s) for makeStyles/withStyles. Note, emotion does not work with SSR -> https://mui.com/material-ui/guides/styled-engine/#how-to-switch-to-styled-components
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
+    const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
@@ -25,26 +25,31 @@ const Layout = ({ children }) => {
     }
   `)
 
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          marginLeft: '25%',
-          maxWidth: '50%',
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: '25px',
-          }}
-        >
-          © {new Date().getFullYear()} &middot; Madison County Christian Schools
-        </footer>
-      </div>
-    </>
-  )
+    return (
+        <>
+            <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    flexWrap: 'wrap',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    maxWidth: '1000px'
+                }}
+            >
+                <main>{children}</main>
+                <footer
+                    style={{
+                        marginTop: '25px'
+                    }}
+                >
+                    © {new Date().getFullYear()} &middot; Madison County Christian Schools
+                </footer>
+            </div>
+
+        </>
+    )
 }
 
 export default Layout

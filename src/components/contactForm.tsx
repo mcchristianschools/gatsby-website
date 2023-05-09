@@ -100,45 +100,50 @@ const ContactForm = () => {
     }
 
     return (
-        <><form>
-            <div style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-            }}>
-                <TextField id="first-name" label='First Name*' variant="filled" value={firstName} helperText={firstNameHelperText} error={firstNameHelperText !== ''} onInput={onFirstNameChange} />
-                <TextField id="last-name" label='Last Name*' variant="filled" value={lastName} helperText={lastNameHelperText} error={lastNameHelperText !== ''} onInput={onLastNameChange} />
-                <TextField id="email" label='Email*' variant="filled" value={email} helperText={emailHelperText} error={emailHelperText !== ''} onInput={onEmailChange} />
-            </div>
+        <div>
+            <form>
+                <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    columnGap: '10px',
+                    rowGap: '5px'
+                }}>
+                    <TextField id="first-name" label='First Name*' variant="filled" value={firstName} helperText={firstNameHelperText} error={firstNameHelperText !== ''} onInput={onFirstNameChange} />
+                    <TextField id="last-name" label='Last Name*' variant="filled" value={lastName} helperText={lastNameHelperText} error={lastNameHelperText !== ''} onInput={onLastNameChange} />
+                    <TextField id="email" label='Email*' variant="filled" value={email} helperText={emailHelperText} error={emailHelperText !== ''} onInput={onEmailChange} />
+                </div>
 
-            <div style={{
-                marginTop: '20px'
-            }}>
-                <Typography variant='subtitle1' style={{
-                    marginBottom: '5px'
-                }}>Optional</Typography>
-                <PhoneNumber phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} />
-                <FormGroup style={{ marginTop: '10px' }}>
-                    <Typography>I want to (check all that apply):</Typography>
-                    <FormControlLabel control={<Checkbox checked={sendCheck} onChange={onSendCheckChange} />} label="Send my child(ren) to the school when it opens" />
-                    <FormControlLabel control={<Checkbox checked={donateCheck} onChange={onDonateCheckChange} />} label="Donate to the school when donations become available" />
-                    <FormControlLabel control={<Checkbox checked={supportCheck} onChange={onSupportCheckChange} />} label="Show my general support for a christian school opening in Madison County" />
-                    <FormControlLabel control={<Checkbox checked={workCheck} onChange={onWorkCheckChange} />} label="Apply to work at the school when positions become available" />
-                </FormGroup>
-            </div>
+                <div style={{
+                    marginTop: '20px'
+                }}>
+                    <Typography variant='subtitle1' style={{
+                        marginBottom: '5px'
+                    }}>Optional</Typography>
+                    <PhoneNumber phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} />
+                    <FormGroup style={{ marginTop: '10px' }}>
+                        <Typography>I want to (check all that apply):</Typography>
+                        <FormControlLabel control={<Checkbox checked={sendCheck} onChange={onSendCheckChange} />} label="Send my child(ren) to the school when it opens" />
+                        <FormControlLabel control={<Checkbox checked={donateCheck} onChange={onDonateCheckChange} />} label="Donate to the school when donations become available" />
+                        <FormControlLabel control={<Checkbox checked={supportCheck} onChange={onSupportCheckChange} />} label="Show my general support for a christian school opening in Madison County" />
+                        <FormControlLabel control={<Checkbox checked={workCheck} onChange={onWorkCheckChange} />} label="Apply to work at the school when positions become available" />
+                    </FormGroup>
+                </div>
 
-            <Button id="submit" variant='contained' onClick={onSubmit} disabled={submitDisabled} style={{ marginTop: '5px', marginBottom: '5px' }}>Submit</Button>
+                <Button id="submit" variant='contained' onClick={onSubmit} disabled={submitDisabled} style={{ marginTop: '5px', marginBottom: '5px' }}>Submit</Button>
 
-            <Typography style={{
-                color: clsx({
-                    '#0288d1': formDetails.substring(0, 5) !== 'Error',
-                    '#d32f2f': formDetails.substring(0, 5) === 'Error'
-                })
-            }}>{formDetails}</Typography>
+                <Typography style={{
+                    color: clsx({
+                        '#0288d1': formDetails.substring(0, 5) !== 'Error',
+                        '#d32f2f': formDetails.substring(0, 5) === 'Error'
+                    })
+                }}>{formDetails}</Typography>
 
-            <Typography style={{
-                color: '#d32f2f'
-            }}>{formDetails !== '' && formDetails.substring(0, 5) === 'Error' ? 'If the issue persists contact support@mcchristianschools.com' : ''}</Typography>
-        </form><Typography variant='caption'> By filling out this form, you agree to recieve marketing communications via email & phone (if provided). We will never spam you and will only contact you when we have updates on the school's progress.</Typography></>
+                <Typography style={{
+                    color: '#d32f2f'
+                }}>{formDetails !== '' && formDetails.substring(0, 5) === 'Error' ? 'If the issue persists contact support@mcchristianschools.com' : ''}</Typography>
+            </form>
+            <Typography variant='caption'> By filling out this form, you agree to recieve marketing communications via email & phone (if provided). We will never spam you and will only contact you when we have updates on the school's progress.</Typography>
+        </div>
     )
 }
 
