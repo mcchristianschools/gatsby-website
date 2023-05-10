@@ -29,11 +29,13 @@ function Seo({ description, title, children }: { description?: string, title?: s
 
     return (
         <>
-            <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
+            <title>{defaultTitle ? defaultTitle : title}</title>
             <meta name="description" content={metaDescription} />
-            <meta property="og:title" content={title} />
+            <meta property="og:title" content={defaultTitle ? defaultTitle : title} />
             <meta property="og:description" content={metaDescription} />
             <meta property="og:type" content="website" />
+            <meta property="og:url" content="mcchristianschools.com" />
+            <meta property="og:image" content="../images/shield_logo.webp" />
             <meta name="keywords" content="Christian, School, Richmond KY, Gracepoint, Christian School, Education, Learning, Elementary, Elementary School, Schooling, Teaching" />
             {children}
         </>
