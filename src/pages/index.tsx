@@ -31,7 +31,7 @@ const PageLayout: React.FC = () => (
 )
 
 export const Head = () => (
-    <SEO />
+    <SEO title="MCCS" />
 )
 
 export default PageLayout

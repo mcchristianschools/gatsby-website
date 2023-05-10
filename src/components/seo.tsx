@@ -29,7 +29,7 @@ function Seo({ description, title, children }: { description?: string, title?: s
 
     return (
         <>
-            <title>{defaultTitle ? defaultTitle : title}</title>
+            <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
             <meta name="description" content={metaDescription} />
             <meta property="og:title" content={defaultTitle ? defaultTitle : title} />
             <meta property="og:description" content={metaDescription} />
