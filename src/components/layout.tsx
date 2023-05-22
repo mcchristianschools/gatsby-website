@@ -26,30 +26,23 @@ const Layout = ({ children }) => {
   `)
 
     return (
-        <>
+        <div style={{ margin: '-8px' }}> {/*// TODO - Try to find a better way*/}
             <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-            <div
-                style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    flexWrap: 'wrap',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                    maxWidth: '1000px'
-                }}
-            >
+            <div>
                 <main>{children}</main>
                 <footer
                     style={{
                         marginTop: '25px',
-                        fontSize: '14px'
+                        fontSize: '14px',
+                        width: '100%',
+                        textAlign: 'center'
                     }}
                 >
                     © {new Date().getFullYear()} &middot; Madison County Christian Schools
                 </footer>
             </div>
 
-        </>
+        </ div>
     )
 }
 

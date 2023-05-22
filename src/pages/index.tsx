@@ -10,23 +10,45 @@ import SEO from "../components/seo"
 
 const PageLayout: React.FC = () => (
     <Layout>
-        <h1>
-            <StaticImage src="../images/full_logo.webp" alt="Lionhead logo with the full school name" />
-        </h1>
-        <div>
-            <Typography>We are very excited to announce we are starting a Christian School in Madison County! We are still in the early stages, however here are the details we can provide today:</Typography>
-            <List>
-                <ListItem>- We will have classes from preschool through 5th grade.</ListItem>
-                <ListItem>- The school is planned to be in Richmond</ListItem>
-                <ListItem>- We are aiming to launch the fall of 2024. We can't guarentee this timeframe, but we are working hard to ensure we meet it.</ListItem>
-            </List>
-        </div>
+        <section style={{
+            backgroundColor: '#868686', // TODO - Make an image if available
+            height: '971px',
+            // display: 'flex',
+            // justifyContent: 'center'
+        }}>
+            <div style={{
+                paddingTop: '200px',
+                paddingLeft: '35px',
+                paddingRight: '35px',
+                // fontWeight: '300',
+                textAlign: 'center',
+            }}>
+                <Typography variant="h1" style={{
+                    fontSize: 'max(26px, 3vw)',
+                    fontFamily: 'Corbel',
+                    marginBottom: '10px',
+                    color: '#fff'
+                }}>Madison County Christian Schools</ Typography>
+                <Typography style={{
+                    // textAlign: 'center',
+                    fontFamily: 'Corbel',
+                    fontSize: '20px',
+                    color: '#e1e0e0'
 
-        <div>
-            <Typography variant='h5' style={{ marginBottom: '5px', marginTop: '10px' }}>We need your help!</Typography>
-            <Typography variant='subtitle2' style={{ marginBottom: '10px' }}>Starting a school is hard work and your support goes a long way to making this a reality. Please fill out the form below to show your support for Madison County Christian Schools!</Typography>
-            <ContactForm></ContactForm>
-        </div>
+                }}>Join our contact list and be notified whenever we have updates to share!</Typography>
+
+            </div>
+            {/* // TODO - Refactor positioning to center */}
+            <ContactForm style={{ backgroundColor: '#eee' }}></ContactForm>
+        </section>
+        <section style={{
+            // backgroundColor: '#fff',
+            height: '600px',
+        }}></section>
+        <section style={{
+            backgroundColor: '#f3f3f3',
+            height: '775px',
+        }}></section>
     </Layout>
 )
 
