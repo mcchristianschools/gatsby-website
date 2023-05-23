@@ -5,10 +5,12 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import ContactForm from "../components/contactForm"
-import { Card, CardContent, List, ListItem, Typography } from "@mui/material"
-import FavoriteIcon from '@mui/icons-material/Favorite'
+import { Divider, Typography } from "@mui/material"
 import SEO from "../components/seo"
 import InfoCard from "../components/infoCard"
+import FAQSection from "../components/faqSection"
+import AspectRatio from '@mui/joy/AspectRatio';
+
 
 const PageLayout: React.FC = () => (
     <Layout>
@@ -41,32 +43,77 @@ const PageLayout: React.FC = () => (
 
             </div>
             {/* // TODO - Refactor positioning to center */}
-            <ContactForm style={{ backgroundColor: '#eee' }}></ContactForm>
+            <ContactForm style={{
+                backgroundColor: '#eee'
+                // TODO - Center content on large page
+            }}></ContactForm>
         </section>
         <section style={{
             // backgroundColor: '#fff',
             height: '600px',
-            display: 'flex',
-            // justifyContent: 'space-between'
+            textAlign: 'center'
         }}>
             <div style={{
-                minWidth: '25px',
-                maxWidth: '150px',
-                width: '8%'
-            }}></div>
-            <InfoCard headerText='Christ Focused' contentText='Everything we do from ____ to ____ is focused on Christ and sharing him with those around us. While education itself is important, there is nothing more important than Christ and making him known.' />
-            <InfoCard headerText='Quality Education' contentText='Feeling underwhelmed with the education your child is currently recieving? We focus on teaching your kids everything they need to know to grow up and become successful adults, without all the political propaganda.' />
-            <InfoCard headerText='Honest & Open' contentText="The dishonesty and secrecy in today's education system doesn't work for us and it shouldn't work for you either. We try in everything we do to be open, honest, and clear about our intentions, what we teach, and how we teach it." />
-            <div style={{
-                minWidth: '25px',
-                maxWidth: '150px',
-                width: '8%'
-            }}></div>
+                display: 'flex'
+                // TODO - Center content on large page
+            }}>
+                <div style={{
+                    minWidth: '25px',
+                    maxWidth: '150px',
+                    width: '8%'
+                }}></div>
+                <InfoCard headerText='Christ Focused' contentText='Everything we do from ____ to ____ is focused on Christ and sharing him with those around us. While education itself is important, there is nothing more important than Christ and making him known.' />
+                <InfoCard headerText='Quality Education' contentText='Feeling underwhelmed with the education your child is currently recieving? We focus on teaching your kids everything they need to know to grow up and become successful adults, without all the political propaganda.' />
+                <InfoCard headerText='Honest & Open' contentText="The dishonesty and secrecy in today's education system doesn't work for us and it shouldn't work for you either. We try in everything we do to be open, honest, and clear about our intentions, what we teach, and how we teach it." />
+                <div style={{
+                    minWidth: '25px',
+                    maxWidth: '150px',
+                    width: '8%'
+                }}></div>
+            </div>
+            <Typography style={{
+                marginTop: '120px',
+                color: '#909090'
+            }} variant="h5">Committed to education, unapologetically Christian</Typography>
         </section>
         <section style={{
             backgroundColor: '#f3f3f3',
             height: '775px',
-        }}></section>
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between'
+            // width: '200%' // TODO - Issue with width 100% not working on mobile. Shortening the screen works perfectly, but with mobile it shows with a variable padding/margin.
+        }}>
+            <div style={{
+                maxWidth: '340px',
+                marginLeft: '18%',
+                // marginRight: '50px'
+            }}>
+
+                <div style={{
+                    width: '200px',
+                    // padding: '0px 0px 0px 10px'
+                }}>
+                    <Typography variant="h5" style={{
+                        fontSize: '28px',
+                        fontFamily: 'Corbel',
+                        color: '#303030'
+                    }}>Have Questions?</Typography>
+                    <Divider variant='middle' />
+                </div>
+                <FAQSection questionText='Question 1' answerText='Answer text here ... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum sed nibh sit amet accumsan.'></FAQSection>
+            </div>
+            <AspectRatio ratio='95/65' style={{
+                maxWidth: '950px',
+                maxHeight: '650px',
+                width: '48%',
+                minWidth: '400px',
+                marginLeft: '50px'
+                // color: 'blue'
+            }}>IMAGE HERE
+            </AspectRatio>
+
+        </section>
     </Layout>
 )
 
