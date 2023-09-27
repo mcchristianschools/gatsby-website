@@ -1,11 +1,11 @@
 import * as React from "react"
-import { TextField, Button, FormGroup, FormControlLabel, Checkbox, Typography } from '@mui/material';
+import { TextField, Button, FormGroup, FormControlLabel, Checkbox, Typography, FilledInput } from '@mui/material';
 import { useState, ChangeEvent } from "react";
 import PhoneNumber from "./phoneNumber";
 import handleSubmit from './submit'
 import clsx from "clsx";
 
-const ContactForm = () => {
+const ContactForm = ({ style }: { style?: any }) => {
     const [firstName, setFirstName] = useState('')
     const [firstNameHelperText, setFirstNameHelperText] = useState('')
     const [lastName, setLastName] = useState('')
@@ -105,7 +105,7 @@ const ContactForm = () => {
     }
 
     return (
-        <div>
+        <div style={style}>
             <form>
                 <div style={{
                     display: 'flex',
@@ -113,7 +113,15 @@ const ContactForm = () => {
                     columnGap: '10px',
                     rowGap: '5px'
                 }}>
-                    <TextField id="first-name" label='First Name*' variant="filled" value={firstName} helperText={firstNameHelperText} error={firstNameHelperText !== ''} onInput={onFirstNameChange} />
+                    {/* // TODO - Rounded text fields
+                    // OPTION 1 - FilledInput -> https://codesandbox.io/embed/material-demo-sos7s
+                    // OPTION 2 - '& fieldset' -> https://stackoverflow.com/questions/58339620/cant-change-border-radius-of-text-field-variant-filled-in-material-ui-core */}
+                    {/* // OPTION3 - styled? -> https://github.com/mui/material-ui/issues/13570 */}
+
+                    <TextField id="first-name" label='First Name*' variant="filled" value={firstName} helperText={firstNameHelperText} error={firstNameHelperText !== ''} onInput={onFirstNameChange} style={{
+                        borderRadius: '50px !important',
+                        // fieldset: ''
+                    }} />
                     <TextField id="last-name" label='Last Name*' variant="filled" value={lastName} helperText={lastNameHelperText} error={lastNameHelperText !== ''} onInput={onLastNameChange} />
                     <TextField id="email" label='Email*' variant="filled" value={email} helperText={emailHelperText} error={emailHelperText !== ''} onInput={onEmailChange} />
                 </div>
